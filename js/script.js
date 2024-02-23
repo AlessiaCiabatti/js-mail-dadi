@@ -2,16 +2,48 @@ const lista = ['come@gmail.com', 'quando@gmail.com', 'fuori@gmail.com', 'piove@g
 console.log(lista);
 
 let email = prompt('Inserisci la tua email');
-let elementiLista = lista.length;
+
+let trovato = false;
 
 for (let i = 0; i <= lista.length; i++){
   if(lista[i] === email){
-    messaggio = 'Sei in lista!';
-    console.log(messaggio);
-    document.getElementById('in-out').innerHTML = messaggio;
+   trovato = true;
+   console.log('mailUguale');
   }else{
-    messaggio = 'Non sei in lista!';
-    console.log(messaggio);
-    document.getElementById('in-out').innerHTML = messaggio;
+    console.log('diversa');
   }
+  console.log(trovato);
+  
 }
+
+if(trovato == true){
+  messaggio = 'Sei in lista!';
+  document.getElementById('in-out').innerHTML = messaggio;
+}else{
+  messaggio = 'Non sei in lista!';
+  document.getElementById('in-out').innerHTML = messaggio;
+}
+
+
+
+
+const numeroGiocatore = Math.ceil(Math.random() * 6);
+console.log(numeroGiocatore);
+
+const numeroPc = Math.ceil(Math.random() * 6);
+console.log(numeroPc);
+
+let risultato = '';
+
+if(numeroGiocatore < numeroPc){
+  risultato = 'Hai perso!';
+}else{
+  risultato = 'Hai vinto!';
+}
+
+document.getElementById('win-lose').innerHTML = `
+  Il computer ha giocato ${numeroPc}, tu hai giocato ${numeroGiocatore} <br>
+  ${risultato}
+  `;
+
+
